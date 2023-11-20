@@ -1,6 +1,7 @@
 !# /usr/bin/env ruby
 
 require_relative 'bike'
+require_relative 'pannier'
 
 bike = Bike.new(1, :pink, 99.99)
 
