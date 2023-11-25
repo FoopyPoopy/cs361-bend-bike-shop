@@ -5,14 +5,18 @@ class Bike
 
   STANDARD_WEIGHT = 200 # lbs
 
-  attr_reader :id, :color, :price, :weight, :luggage
-
-  def initialize(id, color, price, extra_items)
-    @id = id
-    @color = color
-    @price = price
-    @weight = STANDARD_WEIGHT
-    @luggage = Luggage.new(Luggage::DEFAULT_MAX_CAPACITY, extra_items, self)
+  attr_reader :id, :color, :base_price, :weight, :luggage
+#Changes made based of Chapter 3 page 49
+  def initialize(args)
+    args = defaults.merge(args)
+    @id = agrs[:id]
+    @color = args[:color]
+    @base_price = args[:base_price]
+    @luggage = args[:luggage]
+    @weight = args[:weight]
   end
 
+  def defaults
+    {:weight => STANDARD_WEIGHT}
+  end
 end
